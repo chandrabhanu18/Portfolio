@@ -1,0 +1,561 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="portfolio.css">
+    
+</head>
+<body class="bg-gray-100 text-gray-800">
+    <canvas id="bg-canvas"></canvas>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-bg-primary/60 backdrop-blur-sm shadow-md py-6 transition-colors duration-500">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold font-serif text-text-dark">CHANDRA</a>
+            
+            <div class="nav-links hidden md:flex space-x-4 md:space-x-8 items-center">
+                <a href="#about" class="nav-link text-sm md:text-base">About</a>
+                <a href="#education" class="nav-link text-sm md:text-base">Education</a>
+                <a href="#skills" class="nav-link text-sm md:text-base">Skills</a>
+                <a href="#certifications" class="nav-link text-sm md:text-base">Certifications</a>
+                <a href="#achievements" class="nav-link text-sm md:text-base">Achievements</a>
+                <a href="#projects" class="nav-link text-sm md:text-base">Projects</a>
+                <a href="#contact" class="nav-link text-sm md:text-base">Contact</a>
+            </div>
+            
+            <div id="menu-icon" class="menu-icon md:hidden">
+                <i class="fa-solid fa-bars text-gray-800"></i>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-bg-primary/80 backdrop-blur-sm shadow-md transition-all duration-500">
+            <div class="flex flex-col items-center space-y-4 py-4">
+                <a href="#about" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">About</a>
+                <a href="#education" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Education</a>
+                <a href="#skills" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Skills</a>
+                <a href="#certifications" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Certifications</a>
+                <a href="#achievements" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Achievements</a>
+                <a href="#projects" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#contact" class="nav-link text-lg w-full text-center py-2" onclick="toggleMobileMenu()">Contact</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main class="relative z-10 pt-20">
+        <section id="home" class="min-h-screen flex flex-col items-center justify-center px-4 py-8 md:p-8">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4 text-gray-900">Hello, I'm Mandiga Chandra Bhanu</h1>
+                <h2 id="role-text" class="text-2xl md:text-4xl font-semibold text-gray-600 mb-4 transition-all duration-700 ease-in-out"></h2>
+                <p class="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-8">
+                    A passionate learner and creator, I'm driven by a love for technology and its power to solve complex problems. From crafting elegant code to exploring the depths of artificial intelligence, my goal is to build solutions that are not just functional, but also impactful.
+                </p>
+                <div class="flex flex-col md:flex-row gap-4 justify-center">
+                    <a href="Resume.pdf" target="_blank" class="cta-btn">View Resume</a>
+                    <a href="#projects" class="cta-btn">View Projects</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-20 flex flex-col items-center justify-center p-8 bg-gray-200">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">About Me</h2>
+                <div class="flex flex-col-reverse md:flex-row-reverse items-center space-y-8 md:space-y-0 md:space-x-12">
+                    <div class="md:w-1/3 flex justify-center">
+                        <img src="green.jpeg" alt="Your Photo" class="w-64 h-81 md:w-80 md:h-101 rounded-lg border-4 border-accent-1 shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-500">
+                    </div>
+                    <div class="text-lg md:text-xl text-gray-700 md:text-left text-center md:w-2/3">
+                        <p class="mb-4">
+                            Hi! I'm <b>Mandiga Chandra Bhanu</b>, a <b>Full-Stack Developer</b> and <b>AI/ML Enthusiast</b> passionate about combining technology and entrepreneurship to solve real-world problems.
+                        </p>
+                        <p class="mb-4">
+                            Currently pursuing my <b>B.Tech in Artificial Intelligence & Machine Learning</b> (2023–2027), I focus on building scalable, user-friendly solutions. I enjoy solving complex problems, developing interactive applications, and exploring cutting-edge AI advancements.
+                        </p>
+                        <p>
+                            Outside of my studies, I am deeply interested in building a bridge between innovative technology and smart business practices. My passion lies in creating products that are both technically robust and commercially viable, ensuring they not only work but also make a significant impact on people's lives.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+         <section id="education" class="py-20 flex items-center justify-center p-8 overflow-hidden">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">Education</h2>
+                <div class="space-y-8">
+                    <!-- B.Tech -->
+                    <div id="btech-card" class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 slide-in-right">
+                        <h3 class="text-2xl font-semibold text-gray-800">B.Tech in Artificial Intelligence & Machine Learning</h3>
+                        <p class="text-gray-500">Aditya University | 2023 - 2027</p>
+                        <p class="mt-2 text-gray-700">
+                            Focused on developing core skills in scalable, user-friendly solutions. Actively exploring cutting-edge AI advancements and their practical applications.
+                        </p>
+                    </div>
+                    <!-- Intermediate -->
+                    <div id="intermediate-card" class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 slide-in-left">
+                        <h3 class="text-2xl font-semibold text-gray-800">Intermediate in MPC</h3>
+                        <p class="text-gray-500">Srujana Model Junior College, Korukonda | 2021 - 2023</p>
+                        <p class="mt-2 text-gray-700">
+                            My studies in Mathematics, Physics, and Chemistry helped me build a strong foundation in problem-solving and logical reasoning, which are essential for my work in technology.
+                        </p>
+                    </div>
+                    <!-- 10th Class -->
+                    <div id="tenth-card" class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 slide-in-right">
+                        <h3 class="text-2xl font-semibold text-gray-800">10th Class</h3>
+                        <p class="text-gray-500">Raja SPHM High School, Govaram | 2020 - 2021</p>
+                        <p class="mt-2 text-gray-700">
+                            This period of my education was foundational, shaping my curiosity and passion for learning new concepts across a wide range of subjects.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20 flex flex-col justify-center items-center p-8 bg-text-dark text-bg-light">
+            <div class="container mx-auto text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4 text-accent-1">My Skills</h2>
+                <p class="text-lg text-gray-300">
+                    Hover over a card to see my skills!
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                 <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-brain text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Problem Solving</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Problem Solving</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-solid fa-c mr-2 text-accent-1"></i> C</li>
+                            <li class="flex items-center"><i class="fa-solid fa-c mr-2 text-accent-1"></i> C++</li>
+                            <li class="flex items-center"><i class="fa-brands fa-java mr-2 text-accent-1"></i> Java</li>
+                            <li class="flex items-center"><i class="fa-brands fa-python mr-2 text-accent-1"></i> Python</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-code text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Web Development</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Web Development</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-brands fa-html5 mr-2 text-accent-1"></i> HTML</li>
+                            <li class="flex items-center"><i class="fa-brands fa-css3-alt mr-2 text-accent-1"></i> CSS</li>
+                            <li class="flex items-center"><i class="fa-brands fa-square-js mr-2 text-accent-1"></i> JavaScript</li>
+                            <li class="flex items-center"><i class="fa-brands fa-bootstrap mr-2 text-accent-1"></i> Bootstrap</li>
+                            <li class="flex items-center"><i class="fa-brands fa-react mr-2 text-accent-1"></i> React</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-database text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Database</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Database</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-solid fa-database mr-2 text-accent-1"></i> MySQL</li>
+                            <li class="flex items-center"><i class="fa-solid fa-server mr-2 text-accent-1"></i> DBMS</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-tools text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Dev Tools</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Dev Tools</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-brands fa-git-alt mr-2 text-accent-1"></i> Git</li>
+                            <li class="flex items-center"><i class="fa-brands fa-github mr-2 text-accent-1"></i> GitHub</li>
+                            <li class="flex items-center"><i class="fa-solid fa-code mr-2 text-accent-1"></i> VS Code</li>
+                            <li class="flex items-center"><i class="fa-solid fa-file-code mr-2 text-accent-1"></i> Jupyter</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-network-wired text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Technical</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">Technical</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-solid fa-microchip mr-2 text-accent-1"></i> Operating Systems</li>
+                            <li class="flex items-center"><i class="fa-solid fa-network-wired mr-2 text-accent-1"></i> Computer Networks</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="skill-card-container skill-card is-visible">
+                    <div class="skill-front bg-gray-100 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <i class="fas fa-brain text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">AI & ML</h3>
+                    </div>
+                    <div class="skill-back bg-gray-200 rounded-lg shadow-xl border border-gray-300 p-6">
+                        <h4 class="text-2xl font-bold text-gray-800 mb-4">AI & ML</h4>
+                        <ul class="space-y-2 text-lg text-left w-full pl-8 text-gray-800">
+                            <li class="flex items-center"><i class="fa-solid fa-brain mr-2 text-accent-1"></i> Artificial Intelligence</li>
+                            <li class="flex items-center"><i class="fa-solid fa-robot mr-2 text-accent-1"></i> Machine Learning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="py-20 flex flex-col items-center justify-center p-8">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">Certifications</h2>
+                <div class="cert-card-container">
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">AWS AI Practitioner</h3>
+                        <p class="text-gray-500">Amazon Web Services</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">AWS ML Foundations</h3>
+                        <p class="text-gray-500">Amazon Web Services</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">AWS Cloud Foundations</h3>
+                        <p class="text-gray-500">Amazon Web Services</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">Oracle Certified Java</h3>
+                        <p class="text-gray-500">Oracle</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">Python Certificate</h3>
+                        <p class="text-gray-500">Infosys's Springboard</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">Red Hat Python Certificate</h3>
+                        <p class="text-gray-500">Red Hat</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">C Programming</h3>
+                        <p class="text-gray-500">Cisco</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">HTML from Cisco</h3>
+                        <p class="text-gray-500">Cisco</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">CSS from Cisco</h3>
+                        <p class="text-gray-500">Cisco</p>
+                    </div>
+                    <div class="bg-gray-200 rounded-lg p-6 shadow-xl border border-gray-300 cert-card">
+                        <h3 class="text-2xl font-semibold text-gray-800">JavaScript from Cisco</h3>
+                        <p class="text-gray-500">Cisco</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Achievements Section -->
+        <section id="achievements" class="py-20 flex items-center justify-center p-8 bg-gray-200">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">My Achievements</h2>
+                <div class="achievements-grid">
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 achievement-card">
+                        <i class="fa-solid fa-code text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800">LeetCode</h3>
+                        <p class="text-gray-500">Completed <b>370+</b> problems using Python & Java</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 achievement-card">
+                        <i class="fa-solid fa-star text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800">HackerRank</h3>
+                        <p class="text-gray-500">Earned <b>25 Stars</b> in Problem Solving</p>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 achievement-card">
+                        <i class="fa-solid fa-trophy text-4xl mb-2 text-accent-1"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800">CodeChef</h3>
+                        <p class="text-gray-500">Solved <b>250+</b> problems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20 flex flex-col items-center justify-center p-8">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">My Projects</h2>
+                <div class="projects-grid">
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 project-card slide-up">
+                        <i class="fas fa-apple-whole project-icon"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Guess the Fruit</h3>
+                        <p class="text-gray-500 mb-4">A Python-based guessing game where you reveal the name of a fruit letter by letter. Limited guesses make it challenging and fun, improving logical thinking and programming skills.</p>
+                        <button class="project-btn"><a href="https://github.com/chandrabhanu18/Guess-the-Fruit-Name/blob/main/Hangman_game.py"> View Project</a></button>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 project-card slide-right">
+                        <i class="fas fa-calendar-check project-icon"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Schedule Track & Pay with Ease</h3>
+                        <p class="text-gray-500 mb-4">A queue-management web app that lets users check the number of people waiting, book a slot, see their position, and estimate waiting time — built with HTML & CSS.</p>
+                        <button class="project-btn"><a href="https://chandrabhanu18.github.io/Schedule-Track-and-Pay-with-Ease/"> View Project</a></button>
+                    </div>
+                    <div class="bg-gray-100 rounded-lg p-6 shadow-xl border border-gray-300 project-card slide-left">
+                        <i class="fas fa-bolt project-icon"></i>
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-2">Flash Master</h3>
+                        <p class="text-gray-500 mb-4">An interactive flashcard app that makes revision engaging with flip cards, quizzes, and the ability to add your own modules for personalized learning.</p>
+                        <button class="project-btn"><a href="https://chandrabhanu18.github.io/FlashMaster/"> View Project</a></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 flex flex-col items-center justify-center p-8 bg-gray-200">
+            <div class="container mx-auto">
+                <h2 class="text-4xl md:text-5xl font-bold text-center mb-12 text-accent-1">Contact</h2>
+                <div class="contact-form-card mx-auto max-w-2xl text-center">
+                    <h3 class="text-3xl md:text-4xl font-semibold mb-4 text-gray-800">Get In Touch!</h3>
+                    <p class="text-lg text-gray-500 mb-8">I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                    <form id="contact-form" class="space-y-6" onsubmit="sendEmail(event)">
+                        <div>
+                            <label for="name" class="sr-only">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-1 focus:ring-accent-1 bg-white p-3 transition-colors duration-300" required>
+                        </div>
+                        <div>
+                            <label for="email" class="sr-only">Your Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-1 focus:ring-accent-1 bg-white p-3 transition-colors duration-300" required>
+                        </div>
+                        <div>
+                            <label for="message" class="sr-only">Your Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Your Message" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-accent-1 focus:ring-accent-1 bg-white p-3 transition-colors duration-300" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="bg-accent-1 text-gray-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-accent-2 transition-all duration-300 email-button">Send Email</button>
+                        </div>
+                    </form>
+                    
+                    <div class="mt-12">
+                        <h4 class="text-lg font-semibold text-gray-700 mb-4">Or connect with me here:</h4>
+                        <div class="flex justify-center space-x-6">
+                            <a href="mailto:mandigachandrabhanu@gmail.com" class="text-gray-500 hover:text-accent-1 transition-transform transform hover:scale-125" aria-label="Email"><i class="fa-solid fa-envelope text-3xl"></i></a>
+                            <a href="https://www.linkedin.com/in/chandrabhanu-mandiga-08a655268/" target="_blank" class="text-gray-500 hover:text-accent-1 transition-transform transform hover:scale-125" aria-label="LinkedIn"><i class="fa-brands fa-linkedin text-3xl"></i></a>
+                            <a href="https://github.com/chandrabhanu18" target="_blank" class="text-gray-500 hover:text-accent-1 transition-transform transform hover:scale-125" aria-label="GitHub"><i class="fa-brands fa-github text-3xl"></i></a>
+                            <a href="https://www.instagram.com/chandra_bhanu18/" target="_blank" class="text-gray-500 hover:text-accent-1 transition-transform transform hover:scale-125" aria-label="Instagram"><i class="fa-brands fa-instagram text-3xl"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center">
+        <p>&copy; 2025 Mandiga Chandra Bhanu. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 3D Background - Three.js
+        window.onload = function() {
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('bg-canvas'), alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            camera.position.z = 5;
+
+            // Create geometry
+            const geometry = new THREE.DodecahedronGeometry(1, 0);
+            const material = new THREE.MeshLambertMaterial({ color: 0xc8c6d9, wireframe: true });
+            
+            const shapes = [];
+            for (let i = 0; i < 20; i++) {
+                const shape = new THREE.Mesh(geometry, material);
+                shape.position.x = (Math.random() - 0.5) * 50;
+                shape.position.y = (Math.random() - 0.5) * 50;
+                shape.position.z = (Math.random() - 0.5) * 50;
+                shape.rotation.x = Math.random() * 2 * Math.PI;
+                shape.rotation.y = Math.random() * 2 * Math.PI;
+                shapes.push(shape);
+                scene.add(shape);
+            }
+
+            const light = new THREE.AmbientLight(0x404040, 2);
+            scene.add(light);
+            const pointLight = new THREE.PointLight(0xa4b0be, 1);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+
+            function animate() {
+                requestAnimationFrame(animate);
+                shapes.forEach(shape => {
+                    shape.rotation.x += 0.005;
+                    shape.rotation.y += 0.005;
+                });
+                renderer.render(scene, camera);
+            }
+            animate();
+
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+        }
+    </script>
+    <script>
+        // Intersection Observer for Education Card Animations
+        const educationCardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('#btech-card, #intermediate-card, #tenth-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, index * 300);
+                    });
+                    educationCardsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const educationSection = document.querySelector('#education');
+        if (educationSection) {
+            educationCardsObserver.observe(educationSection);
+        }
+
+        // Intersection Observer for Skills Card Animations
+        const skillsCardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.skill-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, index * 150); // Small delay for sequential appearance
+                    });
+                    skillsCardsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        const skillsSection = document.querySelector('#skills');
+        if (skillsSection) {
+            skillsCardsObserver.observe(skillsSection);
+        }
+
+        // Intersection Observer for Certifications Cards
+        const certsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.cert-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, index * 100);
+                    });
+                    certsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const certsSection = document.querySelector('#certifications');
+        if (certsSection) {
+            certsObserver.observe(certsSection);
+        }
+        
+        // Intersection Observer for Achievement Cards
+        const achievementsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.achievement-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, index * 200); // Staggered delay
+                    });
+                    achievementsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const achievementsSection = document.querySelector('#achievements');
+        if (achievementsSection) {
+            achievementsObserver.observe(achievementsSection);
+        }
+
+        // Intersection Observer for Project Cards
+        const projectsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const cards = document.querySelectorAll('.project-card');
+                    cards.forEach((card, index) => {
+                        setTimeout(() => {
+                            card.classList.add('is-visible');
+                        }, index * 300);
+                    });
+                    projectsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        const projectsSection = document.querySelector('#projects');
+        if (projectsSection) {
+            projectsObserver.observe(projectsSection);
+        }
+
+        // Intersection Observer for Contact Section
+        const contactObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const contactCard = document.querySelector('.contact-form-card');
+                    if (contactCard) {
+                        contactCard.classList.add('is-visible');
+                    }
+                    contactObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const contactSection = document.querySelector('#contact');
+        if (contactSection) {
+            contactObserver.observe(contactSection);
+        }
+
+        // Dynamic Role Text Animation
+        const roles = ["Aspiring Businesswoman", "Full-Stack Developer", "AI & ML Enthusiast", "Problem Solver"];
+        let roleIndex = 0;
+        const roleTextElement = document.getElementById('role-text');
+
+        function updateRole() {
+            roleTextElement.style.opacity = '0';
+            setTimeout(() => {
+                roleTextElement.textContent = roles[roleIndex];
+                roleTextElement.style.opacity = '1';
+                roleIndex = (roleIndex + 1) % roles.length;
+            }, 700);
+        }
+
+        setInterval(updateRole, 3000);
+        updateRole();
+        
+        // Function to handle email sending
+        function sendEmail(event) {
+            event.preventDefault(); // Prevents the form from submitting in the traditional way
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // Construct the mailto link with the form data
+            const subject = encodeURIComponent(`Message from your portfolio by ${name}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+
+            window.location.href = `mailto:chandrabhanu.m.2005@gmail.com?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
